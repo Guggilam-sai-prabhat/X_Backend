@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import userRouter from "./routes/userRoute.js"
 import tweetRouter from "./routes/tweetRoute.js"
 import cors from "cors"
+
 dotenv.config({
     path : ".env"
 })
@@ -37,7 +38,5 @@ app.get("/", (req, res, next)=>{return res.status(200)
     })})
 
 
-app.listen(process.env.port,()=>{
-    console.log(`server is running at port ${process.env.port}`)
-})
+export default app;
 
