@@ -38,7 +38,5 @@ app.get("/", (req, res, next)=>{return res.status(200)
     })})
 
 
-app.listen(process.env.port,()=>{
-    console.log(`server is running at port ${process.env.port}`)
-})
+
 
