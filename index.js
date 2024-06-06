@@ -7,7 +7,7 @@ import tweetRouter from "./routes/tweetRoute.js"
 import cors from "cors"
 
 dotenv.config({
-    path : ".env"
+    path: ".env"
 })
 
 databaseConnection();
@@ -16,27 +16,34 @@ const app = express();
 //middleware
 
 app.use(express.urlencoded({
-    extended : true
+    extended: true
 }))
 app.use(express.json())
 app.use(cookieParser())
 const corsOtions = {
-    origin :"http://localhost:3000",
+    origin: "http://localhost:3000",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials : true
+    credentials: true
 }
 
 app.use(cors(corsOtions))
 
 //api
-app.use("/api/v1/user" ,userRouter)
+app.use("/api/v1/user", userRouter)
 app.use("/api/v1/tweet", tweetRouter)
 
-app.get("/", (req, res, next)=>{return res.status(200)
-    .json({
-      success: true,
-      message: "HELLO WORLD AGAIN"
-    })})
+app.get("/", (req, res, next) => {
+    return res.status(200)
+        .json({
+            success: true,
+            message: "HELLO WORLD AGAIN"
+        })
+})
+
+const PORT = process.env.PORT || 8080
+app.listen(process.env.port, () => {
+    console.log(`server is running at port ${PORT}`)
+})
 
 
 
