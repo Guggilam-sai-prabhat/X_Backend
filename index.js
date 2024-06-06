@@ -20,20 +20,20 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 app.use(cookieParser())
-// const corsOtions = {
-//     origin: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     credentials: true
-// }
-app.use((req, res, next) => {
-  console.log("CORS middleware executed");
-  next();
-});
+const corsOtions = {
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}
+// app.use((req, res, next) => {
+//   console.log("CORS middleware executed");
+//   next();
+// });
 
-app.use(cors());
+// app.use(cors());
 
 
-app.use(cors())
+app.use(cors(corsOtions));
 
 //api
 app.use("/api/v1/user", userRouter)
