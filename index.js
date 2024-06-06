@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 app.use(cookieParser())
 const corsOtions = {
-    origin: "https://x-frontend-henna.vercel.app",
+    origin: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }
